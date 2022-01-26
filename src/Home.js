@@ -1,22 +1,14 @@
 import { useState, useEffect } from "react";
 import ContactList from "./ContactList";
+import useFetch from "./useFetch";
 
 const Home = () => {
-     const [contacts, setContacts] = useState([
-          { name: 'Bryant Kyle Sagun', gender: 'Male', phoneNumber: '09393715837', id: 1 },
-          { name: 'Gian Carlo Genisera', gender: 'Male', phoneNumber: '09393715837', id: 2 },
-          { name: 'Alaica Marino', gender: 'Female', phoneNumber: '09393715837', id: 3 }
-     ])
-     const handleDelete = (id) => {
-          const newContacts = contacts.filter((contact) => contact.id !== id);
-          setContacts(newContacts)
-     }
-     useEffect(() => {
-
-     }, [])
+     const {data: contacts, isPending, error} = useFetch('http://localhost:8000/Contact')
      return ( 
           <div className="home">
-               <ContactList contacts={contacts} title="All Contacts" handleDelete={handleDelete} />
+               {error && <div>{error}</div>}
+               {isPending && <div>Loading</div>}
+               {contacts && <ContactList contacts={contacts} title="All Contacts"/>}
           </div>
       );
 }
