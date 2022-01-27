@@ -1,22 +1,22 @@
 {
-     "contacts":[
-          {
-               "id": 1,
-               "name": "Bryant Kyle Sagun",
-               "gender": "Male",
-               "phoneNumber": "09393715837"
-          },
-          {
-               "id": 2,
-               "name": "Gian Carlo Genisera",
-               "gender": "Male",
-               "phoneNumber": "09393715837"
-          },
-          {
-               "id": 3,
-               "name": "Alaica Marino",
-               "gender": "Female",
-               "phoneNumber": "09393715837"
-          }
-     ]
+  "contacts": [
+    {
+      "id": 1,
+      "name": "Bryant Kyle Sagun",
+      "gender": "Male",
+      "phoneNumber": "09393715837"
+    },
+    {
+      "id": 2,
+      "name": "Gian Carlo Genisera",
+      "gender": "Male",
+      "phoneNumber": "09393715837"
+    },
+    {
+      "id": 3,
+      "name": "Alaica Marino",
+      "gender": "Female",
+      "phoneNumber": "09393715837"
+    }
+  ]
 }
