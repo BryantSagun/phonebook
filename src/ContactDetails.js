@@ -16,7 +16,7 @@ const ContactDetails = () => {
      }
      const handleEdit = e => {
           fetch('http://localhost:8000/contacts/' + contact.id, {
-               method: 'POST'
+               method: 'GET'
           })
           .then(() => {
                history.push(`/edit/${contact.id}`, {data: contact})

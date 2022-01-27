@@ -7,16 +7,16 @@
       "id": 1
     },
     {
-      "id": 2,
       "name": "Gian Carlo Genisera",
       "gender": "Male",
-      "phoneNumber": "09393715837"
+      "phoneNumber": "09124491334",
+      "id": 2
     },
     {
-      "id": 3,
       "name": "Alaica Marino",
       "gender": "Female",
-      "phoneNumber": "09393715837"
+      "phoneNumber": "09083483552",
+      "id": 3
     },
     {
       "name": "Kaori Miyazono",
