@@ -4,6 +4,7 @@ import Create from './Create';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import ContactDetails from './ContactDetails';
 import NotFound from './NotFound';
+import Edit from './Edit';
 
 function App() {
   return (
@@ -18,8 +19,11 @@ function App() {
               <Route path="/create">
                 <Create />
               </Route>
-              <Route exact path="/contacts/:id">
+              <Route path="/contacts/:id">
                 <ContactDetails />
+              </Route>
+              <Route path="/edit/:id">
+                <Edit />
               </Route>
               <Route path = "*">
                 <NotFound />

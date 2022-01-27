@@ -1,4 +1,4 @@
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import useFetch from './useFetch';
 
@@ -14,6 +14,14 @@ const ContactDetails = () => {
                history.push('/')
           })
      }
+     const handleEdit = e => {
+          fetch('http://localhost:8000/contacts/' + contact.id, {
+               method: 'POST'
+          })
+          .then(() => {
+               history.push(`/edit/${contact.id}`, {data: contact})
+          })
+     }
      return ( 
           <div className="contact-details">
                { isPending && <div>Loading...</div> }
@@ -23,8 +31,8 @@ const ContactDetails = () => {
                          <h2>{contact.name}</h2>
                          <p>Gender: {contact.gender}</p>
                          <p>Contact Number: {contact.phoneNumber}</p>
-                         <div></div>
-                         <button onClick={handleDelete}>DELETE CONTACT</button>
+                         <button className="contact-details-edit" onClick={handleEdit}>EDIT CONTACT</button>
+                         <button className="contact-details-delete" onClick={handleDelete}>DELETE CONTACT</button>
                     </article>
                ) }
           </div>

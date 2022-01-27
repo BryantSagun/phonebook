@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import ContactList from "./ContactList";
 import useFetch from "./useFetch";
 
