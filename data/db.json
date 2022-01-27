@@ -1,5 +1,6 @@
 {
-     "Contact":[{
+     "contacts":[
+          {
                "id": 1,
                "name": "Bryant Kyle Sagun",
                "gender": "Male",

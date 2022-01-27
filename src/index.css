@@ -34,17 +34,36 @@
   padding: 20px;
 }
 
-/* blog previews / list */
-.blog-preview {
+.contact-preview {
   padding: 10px 16px;
   margin: 20px 0;
   border-bottom: 1px solid #fafafa;
 }
-.blog-preview:hover {
+.contact-preview:hover {
   box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
 }
-.blog-preview h2 {
+.contact-preview h2 {
   font-size: 20px;
   color: #82D53C;
   margin-bottom: 8px;
+}
+.contact-preview a{
+  text-decoration: none;
+}
+
+.contact-details h2 {
+  font-size: 20px;
+  color: #82D53C;
+  margin-bottom: 10px;
+}
+.contact-details div {
+  margin: 20px 0;
+}
+.contact-details button {
+  background: #82D53C;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
 }
