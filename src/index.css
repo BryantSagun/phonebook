@@ -40,9 +40,12 @@
   padding: 10px 16px;
   margin: 20px 0;
   border-bottom: 1px solid #fafafa;
+  transition: 0.5s ease;
 }
 .contact-preview:hover {
   box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+  letter-spacing: 1px;
+  transition: 0.5s ease;
 }
 .contact-preview h2 {
   font-size: 20px;

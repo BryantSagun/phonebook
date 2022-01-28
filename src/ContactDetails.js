@@ -19,7 +19,7 @@ const ContactDetails = () => {
                method: 'GET'
           })
           .then(() => {
-               history.push(`/edit/${contact.id}`, {data: contact})
+               history.push(`/contacts/edit/${contact.id}`, {data: contact})
           })
      }
      return ( 

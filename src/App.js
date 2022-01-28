@@ -1,10 +1,10 @@
 import Navbar from './Navbar';
 import Home from './Home';
 import Create from './Create';
-import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import ContactDetails from './ContactDetails';
 import NotFound from './NotFound';
 import Edit from './Edit';
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 function App() {
   return (
@@ -19,10 +19,10 @@ function App() {
               <Route path="/create">
                 <Create />
               </Route>
-              <Route path="/contacts/:id">
+              <Route exact path="/contacts/:id">
                 <ContactDetails />
               </Route>
-              <Route path="/edit/:id">
+              <Route exact path="/contacts/edit/:id">
                 <Edit />
               </Route>
               <Route path = "*">
