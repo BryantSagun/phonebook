@@ -2,11 +2,11 @@ require('dotenv').config()
 
 const sql = require('mssql')
 const sqlConfig = {
-          user:   process.env.USERNAME,
-          password: process.env.PASSWORD,
-          database: process.env.DATABASE,
-          server: process.env.SERVER,
-          pool: {
+     user:   process.env.USERNAME,
+     password: process.env.PASSWORD,
+     database: process.env.DATABASE,
+     server: process.env.SERVER,
+     pool: {
           max: 10,
           min: 0,
           idleTimeoutMillis: 30000
