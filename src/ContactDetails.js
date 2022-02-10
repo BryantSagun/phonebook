@@ -22,7 +22,7 @@ const ContactDetails = () => {
                history.push(`/contacts/edit/${contact.id}`, {data: contact})
           })
      }
-     return ( 
+     return (
           <div className="contact-details">
                { isPending && <div>Loading...</div> }
                { error && <div>{error}</div>}
