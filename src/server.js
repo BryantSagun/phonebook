@@ -4,6 +4,9 @@ const PORT = process.env.PORT || 3001
 const sql = require('mssql')
 const app = express()
 const path = require('path');
+const fs = require('fs');
+const ReactApp = require('./App')
+const ReactDOMServer = require('react-dom-server')
 
 const config = {
      user:   process.env.USERNAME,
@@ -36,9 +39,22 @@ connect();
 
 app.use(express.static(path.resolve(__dirname, '../src')));
 
-app.get("/", async (req, res) => {
-     result = await sql.query(`SELECT * FROM ContactDetails`)
-     res.json(result);
+app.get("/", (req, res) => {
+     // result = await sql.query(`SELECT * FROM ContactDetails`)
+     // res.json(result);
+     const app = ReactDOMServer.renderToString(<ReactApp />);
+     const indexFile = path.resolve('./build/index.html');
+
+     fs.readFile(indexFile, 'utf8', (err, data) => {
+     if (err) {
+          console.error('Something went wrong:', err);
+          return res.status(500).send('Oops, better luck next time!');
+     }
+
+     return res.send(
+          data.replace('<div id="root"></div>', `<div id="root">${app}</div>`)
+     );
+     });
 });
 
 app.listen(PORT, () => {
