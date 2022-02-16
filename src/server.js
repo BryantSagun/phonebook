@@ -1,5 +1,6 @@
 require('dotenv').config()
 const express = require('express')
+const router = require('../router')
 const PORT = process.env.PORT || 3001
 const sql = require('mssql')
 const app = express()
@@ -56,6 +57,10 @@ app.get("/", (req, res) => {
      );
      });
 });
+
+app.use('/create-contact', router)
+
+app.post('/create-contact', router)
 
 app.listen(PORT, () => {
      console.log(`Server listening on ${PORT}`);

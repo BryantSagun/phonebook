@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
+import axios from "axios";
 
 const Create = () => {
      const [name, setName] = useState('');
@@ -12,14 +13,28 @@ const Create = () => {
           e.preventDefault();
           const contact = {name, gender, phoneNumber}
           setIsPending(true)
-          fetch('http://localhost:8000/contacts', {
-               method: 'POST',
-               headers: { "Content-Type": "application/json" },
-               body: JSON.stringify(contact)
+          // fetch('http://localhost:8000/contacts', {
+          //      method: 'POST',
+          //      headers: { "Content-Type": "application/json" },
+          //      body: JSON.stringify(contact)
+          // })
+          // .then(() => {
+          //      setIsPending(false)
+          //      history.push('/');
+          // })
+          axios.post('http://localhost:8000/contacts', {
+               name: contact.name,
+               gender: contact.gender,
+               phoneNumber: contact.phoneNumber
           })
           .then(() => {
                setIsPending(false)
                history.push('/');
+          })
+          axios.post('http://localhost:3000/create-contact', {
+               name: contact.name,
+               gender: contact.gender,
+               phoneNumber: contact.phoneNumber
           })
      }
 
