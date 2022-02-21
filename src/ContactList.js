@@ -1,15 +1,14 @@
 import { Link } from "react-router-dom";
 
-const ContactList = ({ contacts, title}) => {
+const ContactList = ( contacts ) => {
    
      return (
        <div className="contact-list">
-         <h2>{ title }</h2>
-         {contacts.map(contact => (
-           <div className="contact-preview" key={contact.id} >
-             <Link to={`/contacts/${contact.id}`}>
-                <h2>{ contact.name }</h2>
-                {/* <p>Contact Number: { contact.phoneNumber }</p> */}
+         <h2>Contacts</h2>
+         {Object.values(contacts).map(contact => (
+           <div className="contact-preview" key={toString(contact.ID)} >
+             <Link to={`/contacts/${contact.ID}`}>
+                <h2>{contact.LastName}</h2>
              </Link>
            </div>
          ))}

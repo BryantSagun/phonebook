@@ -1,15 +1,16 @@
 import ContactList from "./ContactList";
-import useFetch from "./useFetch";
+import axios from 'axios';
+
+const handleGetRecords = axios.get('http://localhost:3001/').then(records => {
+     return records
+})
 
 const Home = () => {
-     const {data: contacts, isPending, error} = useFetch('http://localhost:8000/contacts')
-     return ( 
+     return (
           <div className="home">
-               {error && <div>{error}</div>}
-               {isPending && <div>Loading</div>}
-               {contacts && <ContactList contacts={contacts} title="All Contacts"/>}
+               <ContactList contacts={handleGetRecords}/>
           </div>
-      );
+     );
 }
- 
+
 export default Home;

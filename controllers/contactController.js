@@ -1,24 +1,15 @@
-const ReactDOMServer = require('react-dom-server')
-const ReactApp = require('../src/App')
-const path = require('path');
-const fs = require('fs');
+const Contact = require('../models/Contact')
 
 exports.getContacts = (req, res) => {
-     const app = ReactDOMServer.renderToString(<ReactApp />);
-     const indexFile = path.resolve('./build/index.html');
-
-     fs.readFile(indexFile, 'utf8', (err, data) => {
-     if (err) {
-          console.error('Something went wrong:', err);
-          return res.status(500).send('Oops, better luck next time!');
-     }
-
-     return res.send(
-          data.replace('<div id="root"></div>', `<div id="root">${app}</div>`)
-     );
-     });
+     Contact.getContacts().then((records) => {
+          console.log(Object.values(records.recordset))
+          res.json(records.recordset)
+     })
 }
 
 exports.createContact = (req, res) => {
-     console.log("Router is working")
+     Contact.createContact(req.body).then(() => {
+          console.log("Contact Created")
+          res.send(true)
+     })
 }

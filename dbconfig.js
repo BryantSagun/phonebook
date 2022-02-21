@@ -1,10 +1,11 @@
+require('dotenv').config()
 const sql = require('mssql')
 
 const config = {
-     user:   process.env.USERNAME,
-     password: process.env.PASSWORD,
-     database: process.env.DATABASE,
-     server: process.env.SERVER,
+     user: process.env.DB_USERNAME,
+     password: process.env.DB_PASSWORD,
+     database: process.env.DB_DATABASE,
+     server: process.env.DB_SERVER,
      pool: {
           max: 10,
           min: 0,
@@ -16,15 +17,12 @@ const config = {
      }
 }
 
-var result = ''
-const connect = async () => {
+exports.connect = async () => {
      try {
           await sql.connect(config)
-          //console.dir(result)
      }
      catch (err) {
           console.log(err)
      }
+     // return sql.query("SELECT * FROM ContactDetails")
 }
-
-connect();

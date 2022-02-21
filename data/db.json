@@ -35,18 +35,6 @@
       "gender": "Male",
       "phoneNumber": "09393715837",
       "id": 7
-    },
-    {
-      "name": "Johnmar Sagun",
-      "gender": "Male",
-      "phoneNumber": "09164213267",
-      "id": 8
-    },
-    {
-      "name": "Pinocchio",
-      "gender": "Male",
-      "phoneNumber": "123",
-      "id": 9
     }
   ]
 }
