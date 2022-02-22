@@ -22,7 +22,7 @@ const Create = () => {
                gender: contact.gender,
                phoneNumber: contact.phoneNumber
           })
-          .then(() => {
+          .then((bool) => {
                setIsPending(false)
                history.push('/');
           })

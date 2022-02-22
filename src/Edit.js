@@ -1,27 +1,33 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
+import axios from "axios";
 
 const Create = () => {
      const history = useHistory();
      const data = history.location.state.data;
-     const [name, setName] = useState(data.name);
-     const [gender, setGender] = useState(data.gender);
-     const [phoneNumber, setPhoneNumber] = useState(data.phoneNumber);
+     const [firstName, setFirstName] = useState(data.FirstName);
+     const [middleName, setMiddleName] = useState(data.MiddleName);
+     const [lastName, setLastName] = useState(data.LastName);
+     const [gender, setGender] = useState(data.Gender);
+     const [phoneNumber, setPhoneNumber] = useState(data.PhoneNumber);
      const [isPending, setIsPending] = useState(false);
 
      const handleSubmit = e => {
           e.preventDefault();
-          const contact = {name, gender, phoneNumber}
+          const contact = {firstName, middleName, lastName, gender, phoneNumber}
           setIsPending(true)
-          fetch('http://localhost:8000/contacts/' + data.id, {
-               method: 'PUT',
-               headers: { "Content-Type": "application/json" },
-               body: JSON.stringify(contact)
+          axios.put('http://localhost:3001/' + data.ID, {
+               firstName: contact.firstName,
+               middleName: contact.middleName,
+               lastName: contact.lastName,
+               gender: contact.gender,
+               phoneNumber: contact.phoneNumber
           })
-          .then(() => {
+          .then((bool) => {
                setIsPending(false)
                history.push('/');
           })
+          .catch(err => {console.log("error")})
      }
 
      return(
@@ -31,9 +37,24 @@ const Create = () => {
                     <label>Contact Name: </label>
                     <input
                          type="text"
+                         placeholder = "First Name"
                          required
-                         value={name}
-                         onChange = {(e) => setName(e.target.value)}
+                         value={firstName}
+                         onChange = {(e) => setFirstName(e.target.value)}
+                    />
+                    <input
+                         type="text"
+                         placeholder = "Middle Name"
+                         required
+                         value={middleName}
+                         onChange = {(e) => setMiddleName(e.target.value)}
+                    />
+                    <input
+                         type="text"
+                         placeholder = "Last Name"
+                         required
+                         value={lastName}
+                         onChange = {(e) => setLastName(e.target.value)}
                     />
                     <label>Gender: </label>
                     <select

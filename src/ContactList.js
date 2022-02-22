@@ -6,11 +6,11 @@ const ContactList = ({ contacts, title }) => {
        <div className="contact-list">
          <h2>{title}</h2>
          {contacts.map(contact => (
-           <div className="contact-preview" key={contact.id} >
-             <Link to={`/contacts/${contact.id}`}>
-                <h2>{contact.FirstName} {contact.MiddleName} {contact.LastName}</h2>
+           <div className="contact-preview" key={contact.ID} >
+             <Link to={`/contacts/${contact.ID}`}>
+                <h2>{contact.FirstName} {contact.LastName}</h2>
              </Link>
-           </div>
+          </div>
          ))}
        </div>
      );
