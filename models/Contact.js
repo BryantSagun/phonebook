@@ -13,7 +13,7 @@ Contact.getContact = id => {
 }
 
 Contact.createContact = data => {
-     return sql.query(`usp_CreateSingleRecord ${data.lastName}, ${data.firstName}, ${data.middleName}, ${data.Gender}, ${data.phoneNumber}`)
+     return sql.query(`usp_CreateSingleRecord ${data.lastName}, ${data.firstName}, ${data.middleName}, ${data.gender}, ${data.phoneNumber}`)
 }
 
 Contact.editContact = (id, data) => {
