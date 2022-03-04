@@ -13,14 +13,16 @@ Contact.getContact = id => {
 }
 
 Contact.createContact = data => {
-     data.records.map(record => {
-          sql.query(`usp_CreateSingleRecord ${record.lastName}, ${record.firstName}, ${record.middleName}, ${record.gender}, ${record.phoneNumber}`)
+     return new Promise((resolve, reject) => {
+          data.records.map(record => {
+               sql.query(`usp_CreateSingleRecord '${record.lastName}', '${record.firstName}', '${record.middleName}', '${record.gender}', '${record.phoneNumber}'`)
+          })
+          resolve()
      })
-     return new Promise((resolve, reject) => resolve())
 }
 
 Contact.editContact = (id, data) => {
-     return sql.query(`usp_UpdateSingleRecord ${data.lastName}, ${data.firstName}, ${data.middleName}, ${data.gender}, ${data.phoneNumber}, ${id}`)
+     return sql.query(`usp_UpdateSingleRecord '${data.lastName}', '${data.firstName}', '${data.middleName}', '${data.gender}', '${data.phoneNumber}', ${id}`)
 }
 
 Contact.deleteContact = id => {

@@ -4,11 +4,6 @@ import axios from "axios";
 
 const Create = () => {
      const [inputList, setInputList] = useState([{firstName: "", middleName:"", lastName: "", gender: "", phoneNumber: ""}])
-     const [firstName, setFirstName] = useState('');
-     const [middleName, setMiddleName] = useState('');
-     const [lastName, setLastName] = useState('');
-     const [gender, setGender] = useState('Male');
-     const [phoneNumber, setPhoneNumber] = useState('');
      const [isPending, setIsPending] = useState(false);
      const history = useHistory();
 
@@ -19,14 +14,14 @@ const Create = () => {
           axios.post('http://localhost:3001/create-contact', {
                records: inputList
           })
-          .then((bool) => {
+          .then(() => {
                setIsPending(false)
                history.push('/');
           })
           .catch(err => {console.log("error")})
      }
 
-     const handleAddForm = (e, index) => {
+     const handleAddForm = () => {
           setInputList([...inputList, { firstName: "", middleName: "", lastName: "", gender: "", phoneNumber: "" }]);
      }
 
